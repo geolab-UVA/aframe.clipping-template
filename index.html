@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@fb96ab2/dist/aframe-extras.min.js"></script>
+    <script src="js/clipping.js"></script>
+    <title>Clipping</title>
+  </head>
+
+  <body>
+    <a-scene>
+      <a-sky id="sky" color="#1A0A2A"></a-sky>
+
+      <a-entity id="rig" movement-controls position="0 0 0">
+        <a-entity
+          id="camera"
+          camera="fov:55"
+          position="0 1.6 0"
+          look-controls
+        ></a-entity>
+      </a-entity>
+
+      <a-entity
+        geometry="primitive: icosahedron; radius: 0.5"
+        material="opacity: 0.84; color: #8f5fbf"
+        position="0 1 -3"
+        id="solid"
+        clipping
+      >
+      <a-entity></a-entity>
+    </a-entity>
+
+      <!-- FRONT(1) (green)-->
+      <a-entity
+        id="face_1"
+        geometry="primitive: plane; width: 5; height: 5"
+        material="color: green; side: double"
+        rotation="-90 00 00"
+        position="2.5 0 2.5"
+      ></a-entity>
+
+      <!-- RIGHT(2) (orange) -->
+      <a-entity
+        id="face_2"
+        geometry="primitive: plane; width: 5; height: 5"
+        material="color: orange; side: double"
+        rotation="-90 00 00"
+        position="2.5 0 -2.5"
+      ></a-entity>
+
+      <!-- TOP(3) (blue)-->
+      <a-entity
+        id="face_3"
+        geometry="primitive: plane; width: 5; height: 5"
+        material="color: blue; side: double"
+        rotation="-90 00 00"
+        position="-2.5 0 2.5"
+      ></a-entity>
+
+      <!-- LEFT(4) (yellow)-->
+      <a-entity
+        id="face_4"
+        geometry="primitive: plane; width: 5; height: 5"
+        material="color: yellow; side: double"
+        rotation="-90 00 00"
+        position="-2.5 0 -2.5"
+      ></a-entity>
+    </a-scene>
+  </body>
+</html>
